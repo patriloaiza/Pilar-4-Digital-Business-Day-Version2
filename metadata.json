@@ -1,0 +1,8 @@
+{
+  "name": "Profundización BMS — Diagnóstico Estratégico",
+  "description": "Aplicación de diagnóstico estratégico para Digital Business Day y Negocios Digitales (Pilar 4 - CREA Y MONETIZA™), con algoritmos rigurosos de control (querer vs necesitar) y hoja de ruta en 9 fases y 41 ejercicios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
