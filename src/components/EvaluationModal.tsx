@@ -31,10 +31,28 @@ export const EvaluationModal: React.FC<EvaluationModalProps> = ({
   onFinishSession,
   onFillTestData
 }) => {
+  // Cerrar con tecla Escape
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 pt-12 sm:pt-6 bg-black/60 backdrop-blur-xs overflow-y-auto">
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-3 sm:p-4 pt-12 sm:pt-6 bg-black/60 backdrop-blur-xs overflow-y-auto"
+    >
       <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden my-auto max-h-[85vh] sm:max-h-[90vh] flex flex-col">
         {/* Header Modal */}
         <div className="bg-[#171717] text-white p-5 border-b-4 border-[#D7192B] flex items-center justify-between">
